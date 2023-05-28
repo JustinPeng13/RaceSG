@@ -1,17 +1,9 @@
-import type { Metadata } from 'next';
-
-const title = 'About | nextjs-starter';
-
-export const metadata: Metadata = {
-  title: title,
-};
-
-const About = () => {
+const Map = () => {
   return (
     <div className="flex">
-      <div className="text-3xl font-bold">About</div>
+      <div className="text-3xl font-bold">Map</div>
     </div>
   );
 };
 
-export default About;
+export default Map;

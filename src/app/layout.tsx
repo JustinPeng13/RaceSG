@@ -1,5 +1,13 @@
+'use client';
+
 import './globals.css';
+import Main from '@/components/Main';
 import { Navbar } from '@/components/Navbar';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'RaceSG'
+}
 
 export default function RootLayout({
   children,
@@ -8,13 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
       <body>
         <div className="flex items-center flex-col p-8 space-y-10 min-h-screen">
-          <Navbar />
-          <main>{children}</main>
+          <Main children={ children }/>
         </div>
       </body>
     </html>

@@ -23,10 +23,42 @@ export function Navbar() {
           </li>
           <li>
             <Link
-              href="/about"
-              className={currentRoute === '/about' ? 'active' : undefined}
+              href="/map"
+              className={currentRoute === '/map' ? 'active' : undefined}
             >
-              About
+              Map
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/explore"
+              className={currentRoute === '/explore' ? 'active' : undefined}
+            >
+              Explore
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/events"
+              className={currentRoute === '/events' ? 'active' : undefined}
+            >
+              Events
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contribute"
+              className={currentRoute === '/contribute' ? 'active' : undefined}
+            >
+              Contribute
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/profile"
+              className={currentRoute === '/profile' ? 'active' : undefined}
+            >
+              Profile
             </Link>
           </li>
         </ul>
