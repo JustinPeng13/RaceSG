@@ -1,12 +1,6 @@
 export {}
 
 declare global {
-  enum difficulty {
-    easy,
-    medium,
-    hard
-  }
-
   interface IUser {
     id: string,
     firstName: string,
@@ -25,10 +19,10 @@ declare global {
   interface ILocation {
     id: string,
     name: string,
-    description: string,
+    desc: string,
     coords: [string, string]
     activity: string,
-    difficulty: difficulty
+    difficulty: 'EASY' | 'MEDIUM' | 'HARD'
   }
 
   interface IRoute {

@@ -1,26 +1,27 @@
 import Link from "next/link";
 
-function getUser(): IUser {
-  let user: IUser = {
-    id: '1',
-    firstName: 'John',
-    lastName: 'Doe',
-    fullName: 'John Doe',
-    email: 'johndoe@gmail.com',
-    points: 100,
-    favouriteLocationIds: ['favLoc1', 'favLoc2'],
-    completedLocationIds: ['comLoc2', 'comLoc3'],
-    favouriteRouteIds: ['favRte1', 'favRte2'],
-    completedRouteIds: ['comRte2', 'comRte3'],
-    rewards: ['discount1', 'prize1'],
-    joinedDate: new Date()
-  }
-  // firebase query
-  return user
-}
+// function getUser(): IUser {
+//   // firebase query
+//   return user
+// }
+
+const user: IUser = {
+  id: '1',
+  firstName: 'John',
+  lastName: 'Doe',
+  fullName: 'John Doe',
+  email: 'johndoe@gmail.com',
+  points: 100,
+  favouriteLocationIds: ['loc1', 'loc2'],
+  completedLocationIds: ['loc3', 'loc4'],
+  favouriteRouteIds: ['rte1', 'rte2'],
+  completedRouteIds: ['rte3', 'rte4'],
+  rewards: ['discount1', 'prize1'],
+  joinedDate: new Date()
+} 
 
 export default function Profile() {
-  const user = getUser();
+  // const user = getUser();
 
   return (
     <div>
