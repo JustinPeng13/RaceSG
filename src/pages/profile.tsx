@@ -45,7 +45,7 @@ export default function Profile() {
               { user.favouriteLocationIds.map(id => {
                 return (
                   <Link href={`/locations/${id}`}> 
-                    <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                    <li key={id} className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
                           <span className="truncate font-medium">{ id }</span>
@@ -65,7 +65,7 @@ export default function Profile() {
               { user.completedLocationIds.map(id => {
                 return (
                   <Link href={`/locations/${id}`}> 
-                    <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                    <li key={id} className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
                           <span className="truncate font-medium">{ id }</span>
@@ -85,7 +85,7 @@ export default function Profile() {
               { user.favouriteRouteIds.map(id => {
                 return (
                   <Link href={`/routes/${id}`}> 
-                    <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                    <li key={id} className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
                           <span className="truncate font-medium">{ id }</span>
@@ -105,7 +105,7 @@ export default function Profile() {
               { user.completedRouteIds.map(id => {
                 return (
                   <Link href={`/routes/${id}`}> 
-                    <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                    <li key={id} className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
                           <span className="truncate font-medium">{ id }</span>
