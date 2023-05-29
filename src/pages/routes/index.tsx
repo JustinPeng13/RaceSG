@@ -20,7 +20,7 @@ export default function Routes() {
     <ul role="list" className="divide-y divide-gray-100">
       {rteArray.map((rte) => (
         <Link key={rte.id} href={`/routes/${rte.id}`}>
-          <li key={rte.id} className="flex justify-between gap-x-6 py-5">
+          <li className="flex justify-between gap-x-6 py-5">
             <div className="flex gap-x-4">
               <div className="min-w-0 flex-auto">
                 <p className="text-lg font-semibold leading-6 text-gray-900">
