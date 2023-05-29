@@ -15,7 +15,7 @@ type UserInfoRes = {
 
 const user: IUser = {
   fullName: "John Doe",
-  email: "johndoe@gmail.com",
+  email: "",
   points: 100,
   favouriteLocationIds: ["loc1", "loc2"],
   completedLocationIds: ["loc3", "loc4"],
@@ -25,7 +25,8 @@ const user: IUser = {
 
 export default function Profile() {
   const [data, setData] = useState<UserInfoRes | null>(null);
-  const [user, setUser] = useState();
+  const [fullName, setFullName] = useState("");
+  const [points, setPoints] = useState("");
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -35,8 +36,14 @@ export default function Profile() {
 
         // Separate the boolean and data from the response
         const { isLoggedIn, ...data } = response;
-        console.log(data.userInfo["myinfo.name"]);
-        const user = getUser(data.userInfo["myinfo.name"]);
+        const user = await getUser(data.userInfo["myinfo.name"]);
+
+        console.log(user);
+        console.log(user.fullName);
+
+        // Set fields
+        setFullName(user.fullName);
+        setPoints(user.points);
       } catch (error) {
         console.error(error instanceof Error ? error.message : String(error));
       }
@@ -52,7 +59,7 @@ export default function Profile() {
             Full Name
           </dt>
           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-            {user.fullName}
+            {fullName}
           </dd>
         </div>
         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -68,7 +75,7 @@ export default function Profile() {
             Points Accumulated
           </dt>
           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-            {user.points}
+            {points}
           </dd>
         </div>
         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
