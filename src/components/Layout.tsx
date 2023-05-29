@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex items-center flex-col p-8 space-y-10 min-h-screen">
+    <div className="flex flex-col p-8 space-y-10 min-h-screen">
       <Main>{children}</Main>
     </div>
   );

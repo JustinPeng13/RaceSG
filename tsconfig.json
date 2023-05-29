@@ -23,6 +23,24 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/pages/indexx.js", "components/Layout.js", "src/pages/profilejs", "src/pages/explore.js", "src/pages/events.js", "src/pages/contribute.js", "src/pages/contact.js", "src/pages/api/UserInfo.server.js", "src/lib/store.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/pages/indexx.js",
+    "components/Layout.js",
+    "src/pages/profilejs",
+    "src/pages/explore.js",
+    "src/pages/events.js",
+    "src/pages/contribute.js",
+    "src/pages/contact.js"
+  ],
+  "exclude": ["node_modules"],
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true,
+    "useTranspileModule": true,
+    "doTypeCheck": true,
+    "forkChecker": true
+  }
 }

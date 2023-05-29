@@ -1,13 +1,42 @@
-const loc: ILocation = {
-  id: "loc1",
-  name: "Jurong Bird Park",
-  desc: "Jurong Bird Park was formerly an aviary and tourist attraction in Jurong, Singapore between 1971 and 2023. The largest such bird park in Asia, it covers an area of 0.2 square kilometres on the western slope of Jurong Hill, the highest point in the Jurong region.",
-  coords: ["1.3187", "103.7064"],
-  activity: "Take 3 pictures of birds",
-  difficulty: "EASY",
-};
+import { getDatabase, ref, get } from "firebase/database";
+import { app } from "../../../firebaseConfig";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Location = () => {
+  const db = getDatabase(app);
+  const router = useRouter();
+
+  const [loc, setLoc] = useState<ILocation>({
+    name: "",
+    desc: "",
+    latitude: "",
+    longitude: "",
+    activity: "",
+    difficulty: 'Easy'
+  });
+  const [pid, setPid] = useState("")
+  
+  useEffect(() => {
+    var pid = ""
+    if (router.query.hasOwnProperty('id')) {
+      pid = router.query.id as string
+    }
+    console.log("hi", router.query)
+    get(ref(db, `locations/${pid}`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setLoc(snapshot.val());
+          console.log('snap', snapshot.val())
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [router.query])
+
   return (
     <div>
       <dl className="divide-y divide-gray-100">
@@ -31,7 +60,7 @@ const Location = () => {
           <dt className="text-sm font-medium leading-6 text-gray-900">
             Coordinates
           </dt>
-          <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{`${loc.coords[0]}° N, ${loc.coords[1]}° E`}</dd>
+          <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{`${loc.latitude}° N, ${loc.longitude}° E`}</dd>
         </div>
         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
           <dt className="text-sm font-medium leading-6 text-gray-900">
