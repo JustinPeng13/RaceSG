@@ -27,6 +27,7 @@
     "@types/node": "20.2.5",
     "@types/node-fetch": "^2.6.4",
     "@types/react": "18.2.7",
+    "@types/uuid": "^9.0.1",
     "eslint": "^8.41.0",
     "typescript": "^5.0.4"
   }

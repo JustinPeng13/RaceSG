@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
 
@@ -59,7 +59,7 @@ export default function AuthPage() {
       });
       if (response.ok) {
         const data = await response.json();
-        alert('Account created successfully')
+        alert("Account created successfully");
         console.log("Account created successfully:", data);
       } else {
         const data = await response.json();
@@ -83,7 +83,7 @@ export default function AuthPage() {
       });
       if (response.ok) {
         const data = await response.json();
-        alert('Logged in successfully')
+        alert("Logged in successfully");
         console.log("Logged in successfully:", data);
       } else {
         console.error(
@@ -121,6 +121,7 @@ export default function AuthPage() {
         className={styles.form}
         onSubmit={isSignUp ? handleSignup : handleLogin}
       >
+        <br />
         {formType === "Locals" && (
           <>
             <br />
