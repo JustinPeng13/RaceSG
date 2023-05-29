@@ -1,34 +1,31 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const flavours = ["Vanilla", "Chocolate", "Strawberry"] as const;
-type IceCream = (typeof flavours)[number];
-
 export default function Home() {
+  // State variable to keep track of the user's login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   console.log(process.env.NODE_ENV);
-  const [state, setState] = useState<IceCream>("Vanilla");
 
   return (
     <div>
-      <h2>Favourite ice cream flavour</h2>
-      <div>
-        {flavours.map((flavour) => (
-          <div key={flavour} onClick={() => setState(flavour)}>
-            <input
-              type="radio"
-              checked={state === flavour}
-              value={flavour}
-              onChange={(e) => setState(e.target.value as IceCream)}
-              title="flavour"
-            />
-            {flavour}
-          </div>
-        ))}
-      </div>
-
-      <Link prefetch={false} href={`/api/auth-url?state=${state}`}>
-        <button>Login with Singpass app</button>
-      </Link>
+      {isLoggedIn ? (
+        <>
+          <div>Welcome back!</div>
+        </>
+      ) : (
+        <>
+          <div>Please log in.</div>
+        </>
+      )}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { v4 as uuidv4 } from "uuid";
-import { store } from "../../lib/store";
+import { setSession, getSession } from "../../lib/store";
 import { sgidClient } from "../../lib/sgidClient";
 import { setCookie } from "cookies-next";
 import { generatePkcePair } from "@opengovsg/sgid-client";
@@ -22,7 +22,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   });
 
   // Store the code verifier, state, and nonce
-  store.set(sessionId, { state, nonce, codeVerifier });
+  setSession(sessionId, { state, nonce, codeVerifier });
 
   // Set the sessionID in the browser's cookies
   setCookie("sessionId", sessionId, { req, res });

@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { store } from '../../lib/store'
+import { setSession, getSession } from '../../lib/store'
 import { sgidClient } from '../../lib/sgidClient'
 import { getCookie, setCookie } from 'cookies-next'
 
@@ -21,7 +21,7 @@ export default async function handler(
   }
   code = String(code)
 
-  const session = store.get(sessionId)
+  const session = await getSession(sessionId)
 
   if (!session) {
     return res.status(401).send('Session not found')
@@ -49,7 +49,7 @@ export default async function handler(
     accessToken,
     sub,
   }
-  store.set(sessionId, updatedSession)
+  setSession(sessionId, updatedSession)
 
   res.redirect('/logged-in')
 }

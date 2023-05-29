@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { store } from '../../lib/store'
+import { getSession, setSession } from '../../lib/store'
 import { sgidClient } from '../../lib/sgidClient'
 import { getCookie } from 'cookies-next'
 
@@ -15,7 +15,7 @@ export default async function handler(
   }
 
   // Retrieve the access token from memory using the session ID
-  const session = store.get(sessionId)
+  const session = await getSession(sessionId)
 
   if (!session) {
     return res.status(401).send('Session not found')
@@ -36,7 +36,7 @@ export default async function handler(
     ...session,
     userInfo: data,
   }
-  store.set(sessionId, updatedSession)
+  setSession(sessionId, updatedSession)
 
   const { accessToken: _, nonce: __, ...dataToReturn } = updatedSession
 
