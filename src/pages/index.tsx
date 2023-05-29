@@ -51,18 +51,18 @@ export default function Home() {
   }, []);
 
   // Inside the useEffect hook, after setting animationVisible to false:
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     const timeout = setTimeout(() => {
-  //       setAnimationVisible(false);
-  //       setTimeout(() => {
-  //         router.push("/locations"); // Replace "/locations" with your desired URL
-  //       }, 1000); // Delay the redirection by 1000 milliseconds (1 second)
-  //     }, 3000);
+  useEffect(() => {
+    if (isLoggedIn) {
+      const timeout = setTimeout(() => {
+        setAnimationVisible(false);
+        setTimeout(() => {
+          router.push("/locations"); // Replace "/locations" with your desired URL
+        }, 1000); // Delay the redirection by 1000 milliseconds (1 second)
+      }, 3000);
 
-  //     return () => clearTimeout(timeout);
-  //   }
-  // }, [isLoggedIn, router]);
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoggedIn, router]);
 
   if (isLoading) {
     return <div>Loading...</div>;
