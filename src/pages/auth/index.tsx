@@ -125,7 +125,7 @@ export default function AuthPage() {
         {formType === "Locals" && (
           <>
             <br />
-            <Link href={`/login`}>
+            <Link href={`/api/auth-url?`}>
               <button className={styles.button}>Login with Singpass app</button>
             </Link>
             <br />
