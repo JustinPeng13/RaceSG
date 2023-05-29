@@ -1,3 +1,5 @@
+// Not needed for current version of app
+
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getSession, setSession } from '../../lib/store'
 import { sgidClient } from '../../lib/sgidClient'

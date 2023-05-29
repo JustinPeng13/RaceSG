@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { getCookie } from "cookies-next";
 
 export default function Home() {
   // State variable to keep track of the user's login status
@@ -12,6 +13,12 @@ export default function Home() {
   const handleLogout = () => {
     setIsLoggedIn(false);
   };
+
+  // Read the value of the isLoggedIn cookie on component mount
+  useEffect(() => {
+    const isLoggedIn = getCookie("isLoggedIn") === "true";
+    setIsLoggedIn(isLoggedIn);
+  }, []);
 
   console.log(process.env.NODE_ENV);
 

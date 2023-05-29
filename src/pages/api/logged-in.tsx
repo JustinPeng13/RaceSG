@@ -1,3 +1,5 @@
+// Not needed for current version of app
+
 import { useEffect, useState } from "react";
 
 type UserInfoRes = {
