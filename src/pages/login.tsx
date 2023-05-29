@@ -1,6 +1,4 @@
-import { redirect } from "next/navigation";
 import { sgidClient } from "@/lib/sgidClient";
-import { cookies } from "next/headers";
 import { store } from "@/lib/store";
 import { generatePkcePair } from "@opengovsg/sgid-client";
 import { useEffect } from "react";
