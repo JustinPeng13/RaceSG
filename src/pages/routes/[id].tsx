@@ -11,8 +11,7 @@ const Route = () => {
   const [rte, setRte] = useState<IRoute>({
     name: "",
     desc: "",
-    locationIds: [],
-    locationNames: []
+    locations: [["", ""]],
   });
   const [pid, setPid] = useState("")
 
@@ -57,7 +56,7 @@ const Route = () => {
             Number of Locations
           </dt>
           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-            {rte.locationIds.length}
+            {rte.locations.length}
           </dd>
         </div>
         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -69,13 +68,13 @@ const Route = () => {
               role="list"
               className="divide-y divide-gray-100 rounded-md border border-gray-200"
             >
-              {rte.locationIds.map((id, index) => {
+              {rte.locations.map(([id, name], index) => {
                 return (
                   <Link key={id} href={`/locations/${id}`}>
                     <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                          <span className="truncate font-medium">{rte.locationNames[index]}</span>
+                          <span className="truncate font-medium">{name}</span>
                         </div>
                       </div>
                     </li>

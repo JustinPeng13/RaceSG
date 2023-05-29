@@ -6,10 +6,12 @@ export default function handler(req, res) {
   if (req.method === "GET") {
 
     const newRte = push(ref(db, "routes"), {
-      name: "Nature",
-      desc: "A route for nature-loving adventurers",
-      locationIds: ["-NWch7GOUIfBGG3WJP1K", "-NWd0JZtQwE8P-geXwOR", "-NWd0cNh9lDf5Dnc1UUS"],
-      locationNames:["Jurong Bird Park", "Botanic Gardens", "Gardens By The Bay"]
+      name: "Cool Schools",
+      desc: "Be a student again, exploring campuses",
+      locations: [
+        ["-NWchNrEC0UWTTHFtmF1", "National University of Singapore"],
+        ["-NWdIlKNkFVDg3xHF-f0", "The Hive"],
+      ],
     },);
     res.redirect(`/routes/${newRte.key}`)
   }
