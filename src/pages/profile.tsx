@@ -1,13 +1,19 @@
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { getUser, setUser } from "../lib/userstore";
 
 // function getUser(): IUser {
 //   // firebase query
 //   return user
 // }
 
+type UserInfoRes = {
+  sub?: string;
+  userInfo?: Record<string, string>;
+  state?: string;
+};
+
 const user: IUser = {
-  firstName: "John",
-  lastName: "Doe",
   fullName: "John Doe",
   email: "johndoe@gmail.com",
   points: 100,
@@ -15,12 +21,28 @@ const user: IUser = {
   completedLocationIds: ["loc3", "loc4"],
   favouriteRouteIds: ["rte1", "rte2"],
   completedRouteIds: ["rte3", "rte4"],
-  rewards: ["discount1", "prize1"],
-  joinedDate: new Date(),
 };
 
 export default function Profile() {
-  // const user = getUser();
+  const [data, setData] = useState<UserInfoRes | null>(null);
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      try {
+        const res = await fetch("/api/userinfo", { credentials: "include" });
+        const response = await res.json();
+
+        // Separate the boolean and data from the response
+        const { isLoggedIn, ...data } = response;
+        console.log(data.userInfo["myinfo.name"]);
+        const user = getUser(data.userInfo["myinfo.name"]);
+      } catch (error) {
+        console.error(error instanceof Error ? error.message : String(error));
+      }
+    };
+    getUserInfo();
+  }, []);
 
   return (
     <div>
