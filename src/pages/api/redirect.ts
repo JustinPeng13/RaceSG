@@ -48,11 +48,9 @@ export default async function handler(
     ...session,
     accessToken,
     sub,
+    isLoggedIn: true,
   };
   setSession(sessionId, updatedSession);
 
-  // Set a cookie to indicate that the user is logged in
-  setCookie("isLoggedIn", "true", { res });
-
-  res.redirect("/logged-in");
+  res.redirect("/");
 }

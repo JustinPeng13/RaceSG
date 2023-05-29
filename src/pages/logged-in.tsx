@@ -18,9 +18,7 @@ const LoggedIn = () => {
       try {
         setIsLoading(true);
         const res = await fetch("/api/userinfo", { credentials: "include" });
-        const responseText = await res.text();
-        console.log(responseText);
-        const data = JSON.parse(responseText) as UserInfoRes;
+        const data = (await res.json()) as UserInfoRes;
         setData(data);
       } catch (error) {
         setError(error instanceof Error ? error.message : String(error));
@@ -38,10 +36,12 @@ const LoggedIn = () => {
   }
 
   return (
-    <Lottie
-      animationData={animationData}
-      style={{ position: "absolute", zIndex: -1 }}
-    />
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <Lottie
+        animationData={animationData}
+        style={{ position: "absolute", zIndex: -1 }}
+      />
+    </div>
   );
 };
 export default LoggedIn;

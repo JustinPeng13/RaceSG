@@ -11,6 +11,7 @@ type Session = {
   accessToken?: string;
   userInfo?: Record<string, string>;
   sub?: string;
+  isLoggedIn?: boolean;
 };
 
 // Define a function to get a session from the database

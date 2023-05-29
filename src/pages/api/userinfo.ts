@@ -22,7 +22,7 @@ export default async function handler(
   if (!session) {
     return res.status(401).send("Session not found");
   }
-  const { accessToken, sub } = session;
+  const { accessToken, sub, isLoggedIn } = session;
 
   if (!accessToken || typeof accessToken !== "string") {
     return res.status(400).send("Access token not in session");
@@ -42,6 +42,12 @@ export default async function handler(
 
   const { accessToken: _, nonce: __, ...dataToReturn } = updatedSession;
 
+  // Include the isLoggedIn status in the returned object
+  const response = {
+    isLoggedIn: updatedSession.isLoggedIn,
+    ...dataToReturn,
+  };
+
   // Return the user info
-  res.json(dataToReturn);
+  res.json(response);
 }
