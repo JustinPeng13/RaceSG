@@ -2,6 +2,7 @@ import { Fragment, useEffect } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const user = {
   name: 'Tom Cook',
@@ -9,6 +10,12 @@ const user = {
   imageUrl:
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
+const navigation = [
+  { name: 'Map', href: '/map', current: false },
+  { name: 'Locations', href: '/locations', current: false },
+  { name: 'Routes', href: '/routes', current: false },
+  { name: 'Contribute', href: '/contribute', current: false },
+]
 const userNavigation = [
   { name: 'Profile', href: '/profile' },
   { name: 'Log out', href: '/logout' },
@@ -23,14 +30,6 @@ export default function Main({
 }: {
   children: React.ReactNode;
 }) {
-  
-  const navigation = [
-    { name: 'Map', href: '/map', current: false },
-    { name: 'Locations', href: '/locations', current: false },
-    { name: 'Routes', href: '/routes', current: false },
-    { name: 'Contribute', href: '/contribute', current: false },
-  ]
-
   const router = useRouter()
 
   useEffect(() => {
@@ -41,7 +40,6 @@ export default function Main({
     })
   }, [router])
   
-
   return (
     <>
       <div className="min-h-full">
@@ -51,11 +49,12 @@ export default function Main({
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
-                    <div className="flex-shrink-0">
-                      <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Your Company"
+                    <div className="flex-shrink-0 ml-2">
+                      <Image
+                        src="/logo-half.png"
+                        alt="RaceSG"
+                        width={100}
+                        height={100}
                       />
                     </div>
                     <div className="hidden md:block">
@@ -85,7 +84,7 @@ export default function Main({
                         <div>
                           <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="sr-only">Open user menu</span>
-                            <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                            <Image className="rounded-full" src="/logo.png" alt="" width={32} height={32} />
                           </Menu.Button>
                         </div>
                         <Transition
@@ -152,7 +151,7 @@ export default function Main({
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
-                      <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                      <Image className="rounded-full" src="/logo.png" alt="" width={32} height={32} />
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium leading-none text-white">{user.name}</div>

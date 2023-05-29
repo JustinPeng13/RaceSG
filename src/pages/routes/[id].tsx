@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 const Route = () => {
-  const db = getDatabase(app);
   const router = useRouter();
 
   const [rte, setRte] = useState<IRoute>({
@@ -13,9 +12,9 @@ const Route = () => {
     desc: "",
     locations: [["", ""]],
   });
-  const [pid, setPid] = useState("")
 
   useEffect(() => {
+    const db = getDatabase(app);
     var pid = ""
     if (router.query.hasOwnProperty('id')) {
       pid = router.query.id as string

@@ -29,7 +29,7 @@ const MapPage = () => {
   });
 
   return (
-    <Map width="800" height="400" center={DEFAULT_CENTER} zoom={11}>
+    <Map center={DEFAULT_CENTER} zoom={11}>
       {({
         TileLayer,
         Marker,
@@ -50,6 +50,7 @@ const MapPage = () => {
             const loc = val as ILocation;
             return (
               <Marker
+                key={id}
                 position={[parseFloat(loc.latitude), parseFloat(loc.longitude)]}
               >
                 <Tooltip>{loc.name}</Tooltip>
