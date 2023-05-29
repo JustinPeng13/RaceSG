@@ -2,7 +2,6 @@ export { }
 
 declare global {
   interface IUser {
-    id: string,
     firstName: string,
     lastName: string,
     fullName: string,
@@ -17,23 +16,21 @@ declare global {
   }
 
   interface ILocation {
-    id: string,
     name: string,
     desc: string,
-    coords: [string, string]
+    latitude: string,
+    longitude: string,
     activity: string,
-    difficulty: 'EASY' | 'MEDIUM' | 'HARD'
+    difficulty: 'Easy' | 'Medium' | 'Hard'
   }
 
   interface IRoute {
-    id: string,
     name: string,
     desc: string,
     locationIds: string[]
   }
 
   interface IReward {
-    id: string,
     name: string,
     desc: string
   }

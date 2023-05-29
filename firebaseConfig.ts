@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp, getApps, FirebaseApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -13,11 +12,20 @@ const firebaseConfig = {
   storageBucket: "racesg-lifehack2023.appspot.com",
   messagingSenderId: "437669094647",
   appId: "1:437669094647:web:b6c7d4b9477063fa431ff2",
-  measurementId: "G-Z7P1P27CDC"
+  measurementId: "G-Z7P1P27CDC",
+  databaseURL:
+    "https://racesg-lifehack2023-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+let app: FirebaseApp;
+
+// Check if a Firebase app with the name "[DEFAULT]" has already been initialized
+if (!getApps().length) {
+  // Initialize a new Firebase app
+  app = initializeApp(firebaseConfig);
+} else {
+  // Use the existing Firebase app
+  app = getApps()[0];
+}
 
 export { app };

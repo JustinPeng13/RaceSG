@@ -6,7 +6,6 @@ import Link from "next/link";
 // }
 
 const user: IUser = {
-  id: "1",
   firstName: "John",
   lastName: "Doe",
   fullName: "John Doe",

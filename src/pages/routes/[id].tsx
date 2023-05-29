@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 const rte: IRoute = {
-  id: "rte1",
   name: "Nature",
   desc: "A route for nature-loving adventurers",
   locationIds: ["loc1"],
