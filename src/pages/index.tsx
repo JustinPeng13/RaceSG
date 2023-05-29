@@ -1,7 +1,9 @@
-import LoginWithIceCream from "@/components/LoginWithIceCream";
+import LoginWithIceCream from "../components/LoginWithIceCream";
 
 export default function Home() {
   return (
-    <LoginWithIceCream />
+    <div>
+      Hello World
+    </div>
   );
 }
