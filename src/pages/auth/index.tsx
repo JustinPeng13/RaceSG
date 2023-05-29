@@ -59,6 +59,7 @@ export default function AuthPage() {
       });
       if (response.ok) {
         const data = await response.json();
+        alert('Account created successfully')
         console.log("Account created successfully:", data);
       } else {
         const data = await response.json();
@@ -82,6 +83,7 @@ export default function AuthPage() {
       });
       if (response.ok) {
         const data = await response.json();
+        alert('Logged in successfully')
         console.log("Logged in successfully:", data);
       } else {
         console.error(
