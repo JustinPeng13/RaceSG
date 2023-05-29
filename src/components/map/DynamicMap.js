@@ -5,13 +5,11 @@ import Leaflet from 'leaflet';
 import * as ReactLeaflet from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-import styles from './Map.css';
+// import styles from './Map.css';
 
 const { MapContainer } = ReactLeaflet;
 
 const Map = ({ children, className, width, height, ...rest }) => {
-  let mapClassName = styles.map;
-
   useEffect(() => {
     (async function init() {
       delete Leaflet.Icon.Default.prototype._getIconUrl;
