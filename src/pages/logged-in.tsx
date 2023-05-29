@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Lottie from "lottie-react";
+import animationData from "../assets/welcome.json";
 
 type UserInfoRes = {
   sub?: string;
@@ -35,7 +37,11 @@ const LoggedIn = () => {
     return <div>{`Error: ${error}`}</div>;
   }
 
-  return <div>Hello world</div>;
+  return (
+    <Lottie
+      animationData={animationData}
+      style={{ position: "absolute", zIndex: -1 }}
+    />
+  );
 };
-
 export default LoggedIn;
