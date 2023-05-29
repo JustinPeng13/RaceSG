@@ -2,14 +2,14 @@
 "use client"
 
 import React from 'react'
-import styles from '../page.module.css'
+// import styles from '../page.module.css'
 const DEFAULT_CENTER = [38.907132, -77.036546]
 
 import Map from './Map';
 
 export const MyMap = () => {
     
-      return <Map className={styles.homeMap} width="800" height="400" center={DEFAULT_CENTER} zoom={12}>
+      return <Map width="800" height="400" center={DEFAULT_CENTER} zoom={12}>
     {({ TileLayer, Marker, Popup }) => (
       <>
         <TileLayer

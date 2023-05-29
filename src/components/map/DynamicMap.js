@@ -5,16 +5,20 @@ import Leaflet from 'leaflet';
 import * as ReactLeaflet from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-import styles from './Map.module.css';
+import styles from './Map.css';
 
 const { MapContainer } = ReactLeaflet;
 
 const Map = ({ children, className, width, height, ...rest }) => {
   let mapClassName = styles.map;
 
-  if ( className ) {
-    mapClassName = `${mapClassName} ${className}`;
-  }
+  // if ( className ) {
+  //   console.log("Hi")
+  //   mapClassName = `${mapClassName} ${className}`;
+  // } else {
+  //   console.log("ew")
+    
+  // }
 
   useEffect(() => {
     (async function init() {
@@ -28,7 +32,7 @@ const Map = ({ children, className, width, height, ...rest }) => {
   }, []);
 
   return (
-    <MapContainer className={mapClassName} {...rest}>
+    <MapContainer className="map" {...rest}>
       {children(ReactLeaflet, Leaflet)}
     </MapContainer>
   )
