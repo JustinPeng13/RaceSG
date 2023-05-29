@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const Location = () => {
-  const db = getDatabase(app);
   const router = useRouter();
 
   const [loc, setLoc] = useState<ILocation>({
@@ -15,19 +14,17 @@ const Location = () => {
     activity: "",
     difficulty: 'Easy'
   });
-  const [pid, setPid] = useState("")
   
   useEffect(() => {
+    const db = getDatabase(app);
     var pid = ""
     if (router.query.hasOwnProperty('id')) {
       pid = router.query.id as string
     }
-    console.log("hi", router.query)
     get(ref(db, `locations/${pid}`))
       .then((snapshot) => {
         if (snapshot.exists()) {
           setLoc(snapshot.val());
-          console.log('snap', snapshot.val())
         } else {
           console.log("No data available");
         }

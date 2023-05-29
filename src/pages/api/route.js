@@ -3,14 +3,16 @@ import { app } from "../../../firebaseConfig";
 
 export default function handler(req, res) {
   const db = getDatabase(app);
-  if (req.method === "POST") {
-    const body = JSON.parse(JSON.stringify(req.body));
+  if (req.method === "GET") {
 
-    // Optional logging to see the responses
-    // in the command line where next.js app is running.
-    console.log("body: ", body);
-
-    const newRte = push(ref(db, "routes"), body);
+    const newRte = push(ref(db, "routes"), {
+      name: "Cool Schools",
+      desc: "Be a student again, exploring campuses",
+      locations: [
+        ["-NWchNrEC0UWTTHFtmF1", "National University of Singapore"],
+        ["-NWdIlKNkFVDg3xHF-f0", "The Hive"],
+      ],
+    },);
     res.redirect(`/routes/${newRte.key}`)
   }
 }

@@ -1,12 +1,38 @@
+import { getDatabase, ref, get } from "firebase/database";
+import { app } from "../../../firebaseConfig";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 
-const rte: IRoute = {
-  name: "Nature",
-  desc: "A route for nature-loving adventurers",
-  locationIds: ["loc1"],
-};
-
 const Route = () => {
+  const router = useRouter();
+
+  const [rte, setRte] = useState<IRoute>({
+    name: "",
+    desc: "",
+    locations: [["", ""]],
+  });
+
+  useEffect(() => {
+    const db = getDatabase(app);
+    var pid = ""
+    if (router.query.hasOwnProperty('id')) {
+      pid = router.query.id as string
+    }
+    console.log("hi", router.query)
+    get(ref(db, `routes/${pid}`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setRte(snapshot.val());
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [router.query])
+
   return (
     <div>
       <dl className="divide-y divide-gray-100">
@@ -29,7 +55,7 @@ const Route = () => {
             Number of Locations
           </dt>
           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-            {rte.locationIds.length}
+            {rte.locations.length}
           </dd>
         </div>
         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -41,13 +67,13 @@ const Route = () => {
               role="list"
               className="divide-y divide-gray-100 rounded-md border border-gray-200"
             >
-              {rte.locationIds.map((id) => {
+              {rte.locations.map(([id, name], index) => {
                 return (
                   <Link key={id} href={`/locations/${id}`}>
                     <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                          <span className="truncate font-medium">{id}</span>
+                          <span className="truncate font-medium">{name}</span>
                         </div>
                       </div>
                     </li>

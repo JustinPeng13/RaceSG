@@ -23,7 +23,7 @@ declare global {
   interface IRoute {
     name: string;
     desc: string;
-    locationIds: string[];
+    locations: [string, string][];
   }
 
   interface IReward {
