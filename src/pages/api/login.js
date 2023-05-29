@@ -42,6 +42,23 @@ export default async function handler(req, res) {
     const user = userCredential.user;
     res.status(200).json({ user });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    let errorMessage;
+    switch (error.code) {
+      case "auth/user-disabled":
+        errorMessage = "The user with the given email has been disabled.";
+        break;
+      case "auth/invalid-email":
+        errorMessage = "The email address is not valid.";
+        break;
+      case "auth/user-not-found":
+        errorMessage = "The user is not found.";
+        break;
+      case "auth/wrong-password":
+        errorMessage = "Wrong password.";
+        break;
+      default:
+        errorMessage = error.message;
+    }
+    res.status(400).json({ error: errorMessage });
   }
 }
