@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+}
+
+.tab {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+}
+
+.tab:hover {
+  background-color: #eee;
+  transform: scale(1.1);
+}
+.tab.active {
+  border-bottom: 5px solid blue;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.form input[type="submit"] {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+/* For buttons */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #4659e5;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  /* Add a fixed width to make the buttons the same size */
+  width: 250px;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #434190;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button--local {
+  background-color: #00c853;
+}
+
+.button--local:hover,
+.button--local:focus {
+  background-color: #009624;
+}
+
+.slideRight {
+  animation: slideRight 2s forwards;
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(1000px);
+  }
+}
