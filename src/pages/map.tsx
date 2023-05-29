@@ -12,7 +12,7 @@ const MapPage = () => {
   const LOCATION_BIRD_PARK = [1.3187, 103.7064]
     
       return <Map width="800" height="400" center={DEFAULT_CENTER} zoom={11}>
-    {({ TileLayer, Marker, Popup }) => (
+    {({ TileLayer, Marker, Popup }: { TileLayer: any, Marker: any, Popup: any }) => (
       <>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
