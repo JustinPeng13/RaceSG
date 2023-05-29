@@ -4,13 +4,14 @@ import Link from "next/link";
 
 type FormType = "Locals" | "Tourists";
 
+
 export default function AuthPage() {
   const [formType, setFormType] = useState<FormType>("Locals");
   const [showFields, setShowFields] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordMatch, setPasswordMatch] = useState(true);
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleTabClick = (type: FormType) => {
     setFormType(type);
@@ -24,6 +25,7 @@ export default function AuthPage() {
 
   const handleLoginClick = () => {
     setShowFields(true);
+    setIsSignUp(false);
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,10 +36,40 @@ export default function AuthPage() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleConfirmPasswordChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setConfirmPassword(e.target.value);
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Perform form submission logic here
-    // You can access the entered values using 'password' and 'confirmPassword' states
+
+    if (password != confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      const response = await fetch("../api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Account created successfully:", data);
+      } else {
+        console.error(
+          "Error creating account:",
+          response.status,
+          response.statusText
+        );
+      }
+    } catch (error) {
+      console.error("Error creating account:", error);
+    }
   };
 
   return (
@@ -61,7 +93,7 @@ export default function AuthPage() {
         </button>
       </div>
       <h2>{formType}</h2>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         {formType === "Locals" && (
           <>
             <br />
@@ -102,16 +134,23 @@ export default function AuthPage() {
               onChange={handlePasswordChange}
             />
             <br />
-            <label htmlFor="confirmPassword">Confirm Password:</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-            />
+            {isSignUp && (
+              <>
+                <label htmlFor="confirmPassword">Confirm Password:</label>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  onChange={handleConfirmPasswordChange}
+                />
+                <br />
+              </>
+            )}
+
             <br />
           </>
         )}
-        <input type="submit" value="Submit" />
+        {showFields && <input type="submit" value="Submit" />}
       </form>
     </div>
   );
