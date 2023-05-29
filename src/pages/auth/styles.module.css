@@ -27,7 +27,7 @@
   transform: scale(1.1);
 }
 .tab.active {
-  border-bottom: 5px solid blue;
+  border-bottom: 5px solid #B799FF;
 }
 
 .form {
@@ -70,7 +70,7 @@
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background-color: #4659e5;
+  background-color: #AEE2FF;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -82,7 +82,7 @@
 
 .button:hover,
 .button:focus {
-  background-color: #434190;
+  background-color: #9BD1FF;
 }
 
 .button:active {
@@ -90,12 +90,12 @@
 }
 
 .button--local {
-  background-color: #00c853;
+  background-color: #ACBCFF
 }
 
 .button--local:hover,
 .button--local:focus {
-  background-color: #009624;
+  background-color: #9BAEFF;
 }
 
 .slideRight {

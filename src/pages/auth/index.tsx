@@ -134,7 +134,7 @@ export default function AuthPage() {
         {formType === "Tourists" && !showFields && (
           <>
             <br />
-            <button className={styles.button} onClick={handleSignUpClick}>
+            <button className={`${styles.button} ${styles["button--local"]}`} onClick={handleSignUpClick}>
               Sign Up
             </button>
             <br />
