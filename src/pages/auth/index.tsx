@@ -4,7 +4,6 @@ import Link from "next/link";
 
 type FormType = "Locals" | "Tourists";
 
-
 export default function AuthPage() {
   const [formType, setFormType] = useState<FormType>("Locals");
   const [showFields, setShowFields] = useState(false);
@@ -41,7 +40,8 @@ export default function AuthPage() {
   ) => {
     setConfirmPassword(e.target.value);
   };
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (password != confirmPassword) {
@@ -72,6 +72,32 @@ export default function AuthPage() {
     }
   };
 
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("../api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Logged in successfully:", data);
+      } else {
+        console.error(
+          "Error logging in:",
+          response.status,
+          response.statusText
+        );
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.tabs}>
@@ -92,8 +118,7 @@ export default function AuthPage() {
           Tourists
         </button>
       </div>
-      <h2>{formType}</h2>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={isSignUp ? handleSignup : handleLogin}>
         {formType === "Locals" && (
           <>
             <br />
@@ -150,7 +175,7 @@ export default function AuthPage() {
             <br />
           </>
         )}
-        {showFields && <input type="submit" value="Submit" />}
+        {showFields && <input type="submit" value={isSignUp ? "Sign Up": "Login"} />}
       </form>
     </div>
   );

@@ -1,8 +1,8 @@
 import Cors from "cors";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../../../firebaseConfig";
 
-// This file act as a server-side proxy for the Firebase sign up using email endpoint
+// This file act as a server-side proxy for the Firebase login using email endpoint
 
 const auth = getAuth(app);
 
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
 
   // Create new user account using Firebase
   try {
-    const userCredential = await createUserWithEmailAndPassword(
+    const userCredential = await signInWithEmailAndPassword(
       auth,
       email,
       password
