@@ -61,11 +61,8 @@ export default function AuthPage() {
         const data = await response.json();
         console.log("Account created successfully:", data);
       } else {
-        console.error(
-          "Error creating account:",
-          response.status,
-          response.statusText
-        );
+        const data = await response.json();
+        alert(data.error);
       }
     } catch (error) {
       console.error("Error creating account:", error);
@@ -118,7 +115,10 @@ export default function AuthPage() {
           Tourists
         </button>
       </div>
-      <form className={styles.form} onSubmit={isSignUp ? handleSignup : handleLogin}>
+      <form
+        className={styles.form}
+        onSubmit={isSignUp ? handleSignup : handleLogin}
+      >
         {formType === "Locals" && (
           <>
             <br />
@@ -175,7 +175,9 @@ export default function AuthPage() {
             <br />
           </>
         )}
-        {showFields && <input type="submit" value={isSignUp ? "Sign Up": "Login"} />}
+        {showFields && (
+          <input type="submit" value={isSignUp ? "Sign Up" : "Login"} />
+        )}
       </form>
     </div>
   );
