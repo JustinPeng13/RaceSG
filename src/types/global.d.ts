@@ -27,7 +27,8 @@ declare global {
   interface IRoute {
     name: string,
     desc: string,
-    locationIds: string[]
+    locationIds: string[],
+    locationNames: string[]
   }
 
   interface IReward {

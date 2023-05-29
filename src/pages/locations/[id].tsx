@@ -22,12 +22,10 @@ const Location = () => {
     if (router.query.hasOwnProperty('id')) {
       pid = router.query.id as string
     }
-    console.log("hi", router.query)
     get(ref(db, `locations/${pid}`))
       .then((snapshot) => {
         if (snapshot.exists()) {
           setLoc(snapshot.val());
-          console.log('snap', snapshot.val())
         } else {
           console.log("No data available");
         }
