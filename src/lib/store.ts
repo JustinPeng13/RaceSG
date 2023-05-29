@@ -1,5 +1,5 @@
 import { app } from "../../firebaseConfig";
-import { getDatabase, ref, onValue, set, DataSnapshot } from "firebase/database";
+import { getDatabase, ref, set, get } from "firebase/database";
 
 // Get a reference to the Realtime Database
 const db = getDatabase(app);
@@ -19,11 +19,7 @@ const getSession = async (sessionId: string) => {
   const sessionRef = ref(db, `sessions/${sessionId}`);
 
   // Get a snapshot of the session data
-  const snapshot = (await new Promise((resolve) => {
-    onValue(sessionRef, (snapshot) => {
-      resolve(snapshot);
-    }, { onlyOnce: true });
-  })) as DataSnapshot;
+  const snapshot = await get(sessionRef);
 
   return snapshot.val() as Session | undefined;
 };
@@ -32,8 +28,7 @@ const getSession = async (sessionId: string) => {
 const setSession = async (sessionId: string, session: Session) => {
   const sessionRef = ref(db, `sessions/${sessionId}`);
 
-  //Set the session data in the database
-  await set(sessionRef, session);
+  set(sessionRef, session);
 };
 
 export { getSession, setSession };

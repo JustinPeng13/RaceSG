@@ -54,5 +54,5 @@ export default async function handler(
   // Set a cookie to indicate that the user is logged in
   setCookie("isLoggedIn", "true", { res });
 
-  // res.redirect("/");
+  res.redirect("/logged-in");
 }

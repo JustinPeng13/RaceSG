@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { getCookie } from "cookies-next";
+import { app } from "../../firebaseConfig";
+import { getDatabase, ref, push } from "firebase/database";
+
+const db = getDatabase(app);
 
 export default function Home() {
   // State variable to keep track of the user's login status
