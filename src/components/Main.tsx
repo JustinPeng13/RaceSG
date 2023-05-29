@@ -29,8 +29,8 @@ export default function Main({
 }: {
   children: React.ReactNode;
 }) {
-  function getTitle() {
-    var title = usePathname().replace('/', '');
+  function getTitle(pathName: string) {
+    var title = (pathName ?? '').replace('/', '');
     return title == '' ? 'Dashboard' : title;
   }
 
@@ -186,7 +186,7 @@ export default function Main({
 
         <header className="bg-white shadow">
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">{ getTitle() }</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">{ getTitle(usePathname()) }</h1>
           </div>
         </header>
         <main className="bg-white shadow">

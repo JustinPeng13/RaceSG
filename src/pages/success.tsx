@@ -79,7 +79,7 @@ export default async function Redirect({ searchParams, sessionId }: RedirectProp
 
       {sub ? <div>{`sgID: ${sub}`}</div> : null}
       {Object.entries(userInfo ?? {}).map(([field, value]) => (
-        <div>{`${field}: ${value}`}</div>
+        <div key={field}>{`${field}: ${value}`}</div>
       ))}
       {state ? <div>{`Favourite ice cream flavour: ${state}`}</div> : null}
 

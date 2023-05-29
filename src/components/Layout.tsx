@@ -12,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <div className="flex items-center flex-col p-8 space-y-10 min-h-screen">
-      <Main children={ children }/>
+      <Main>{ children }</Main>
     </div>
   );
 }
