@@ -10,17 +10,27 @@ RoadSG is an exhilarating race-meets-geocaching app designed to unlock the hidde
 
 Browse through our user-friendly website to uncover a meticulously curated list of Singapore's most intriguing locations. Each location holds secrets waiting to be discovered. As you venture into the heart of each place, a QR code awaits, acting as a gateway to a world of exciting challenges and fascinating trivia.
 
-### 2. Sustainable Adventure
+### 2. Seamless Authentication with sgID
+
+At RoadSG, we prioritize user convenience and security. That's why we have integrated with sgID, a Singapore government identity provider, to offer seamless authentication for local users. With sgID, Singapore residents can easily authenticate themselves and share government-verified data via the Singpass mobile app.
+
+By connecting to sgID, RoadSG ensures a trusted and reliable verification process. Users can rest assured that their identities are securely verified by the Singapore government. This streamlined authentication process enhances user experience and provides a seamless onboarding journey.
+
+Integrating with sgID allows RoadSG to access essential user information, such as full names, ensuring a personalized and tailored experience. Users can enjoy the benefits of sgID authentication without any additional costs. It's a hassle-free way to verify and authenticate local users, creating a secure and trusted environment for all RoadSG adventurers.
+
+Experience the power of sgID integration by trying out our demo app and witness the smooth login flow for yourself. Connect with RoadSG and unlock a world of captivating adventures with the confidence of sgID authentication.
+
+### 3. Sustainable Adventure
 
 At RoadSG, sustainability is at the core of our mission. We utilize reusable QR codes to encourage eco-friendly practices during your adventures. By scanning these codes, you'll unlock thrilling challenges that deepen your connection to the heritage and beauty of each location. Capture the perfect moment with your surroundings or test your knowledge with intriguing trivia.
-
-### 3. Earn Rewards
-
-As you conquer each location and complete challenges, you'll earn points that reflect your performance and dedication. These valuable points can be exchanged for exclusive rewards sponsored by the Singapore government under schemes like Rediscover Singapore. Imagine gaining free entry to renowned attractions like the Science Center or National Gallery Singapore. Your exploration of Singapore will be rewarded beyond your imagination.
 
 ### 4. Amazing Races
 
 Local users hold the power to create their own extraordinary adventures through the Amazing Races feature. Curate and design timed events where participants must navigate a series of special stations in sequential order. Aim to emerge victorious and claim exceptional prizes. Each race is an adrenaline-fueled battle for the top spot, making RoadSG an app that brings out your competitive spirit.
+
+### 5. Earn Rewards
+
+As you conquer each location and complete challenges, you'll earn points that reflect your performance and dedication. These valuable points can be exchanged for exclusive rewards sponsored by the Singapore government under schemes like Rediscover Singapore. Imagine gaining free entry to renowned attractions like the Science Center or National Gallery Singapore. Your exploration of Singapore will be rewarded beyond your imagination.
 
 ## Installation
 
