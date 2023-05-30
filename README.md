@@ -26,7 +26,7 @@ Experience the power of sgID integration by trying out our demo app and witness 
 
 ### 3. Sustainable Adventure
 
-![Lottie Animation](https://assets1.lottiefiles.com/packages/lf20_hnltamej.json)
+![Alt Text](./src/assets/qrcode.gif)
 
 At RoadSG, sustainability is at the core of our mission. We utilize reusable QR codes to encourage eco-friendly practices during your adventures. By scanning these codes, you'll unlock thrilling challenges that deepen your connection to the heritage and beauty of each location. Capture the perfect moment with your surroundings or test your knowledge with intriguing trivia.
 
@@ -35,6 +35,8 @@ At RoadSG, sustainability is at the core of our mission. We utilize reusable QR 
 Local users hold the power to create their own extraordinary adventures through the Amazing Races feature. Curate and design timed events where participants must navigate a series of special stations in sequential order. Aim to emerge victorious and claim exceptional prizes. Each race is an adrenaline-fueled battle for the top spot, making RoadSG an app that brings out your competitive spirit.
 
 ### 5. Earn Rewards
+
+![Alt Text](./src/assets/rewards.gif)
 
 As you conquer each location and complete challenges, you'll earn points that reflect your performance and dedication. These valuable points can be exchanged for exclusive rewards sponsored by the Singapore government under schemes like Rediscover Singapore. Imagine gaining free entry to renowned attractions like the Science Center or National Gallery Singapore. Your exploration of Singapore will be rewarded beyond your imagination.
 
