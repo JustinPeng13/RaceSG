@@ -8,13 +8,16 @@ const LogoutPage = () => {
 
   useEffect(() => {
     const logout = async () => {
+      console.log("HI")
+      const res = await fetch("/api/logout");
       setTimeout(() => {
         router.push("/");
       }, 2500);
     };
 
     logout();
-  }, [router]);
+    sessionStorage.removeItem("isLoggedIn")
+  });
 
   return (
     <div

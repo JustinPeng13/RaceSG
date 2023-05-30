@@ -5,10 +5,10 @@ declare global {
     fullName: string;
     email: string;
     points: number;
-    favouriteLocationIds: string[];
-    completedLocationIds: string[];
-    favouriteRouteIds: string[];
-    completedRouteIds: string[];
+    favouriteLocations: [string, string][];
+    completedLocations: [string, string][];
+    favouriteRoutes: [string, string][];
+    completedRoutes: [string, string][];
   }
 
   interface ILocation {

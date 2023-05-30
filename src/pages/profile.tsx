@@ -17,10 +17,13 @@ const user: IUser = {
   fullName: "John Doe",
   email: "",
   points: 100,
-  favouriteLocationIds: ["loc1", "loc2"],
-  completedLocationIds: ["loc3", "loc4"],
-  favouriteRouteIds: ["rte1", "rte2"],
-  completedRouteIds: ["rte3", "rte4"],
+  favouriteLocations: [["-NWd0cNh9lDf5Dnc1UUS", "Gardens By The Bay"],
+  ["-NWdIlKNkFVDg3xHF-f0", "The Hive"],],
+  completedLocations: [["-NWchNrEC0UWTTHFtmF1", "National University of Singapore"],
+  ["-NWdIlKNkFVDg3xHF-f0", "The Hive"], ["-NWd0cNh9lDf5Dnc1UUS", "Botanic Gardens"]],
+  favouriteRoutes: [["-NWdKZNgWbYGLm_3PSXj", "Cool Schools"]],
+  completedRoutes: [["-NWdKZNgWbYGLm_3PSXj", "Cool Schools"],
+  ["-NWdJcMsI7XFVG8XOgrJ", "Nature"],],
 };
 
 export default function Profile() {
@@ -36,7 +39,7 @@ export default function Profile() {
 
         // Separate the boolean and data from the response
         const { isLoggedIn, ...data } = response;
-        const user = await getUser(data.userInfo["myinfo.name"]);
+        const user = await getUser(data.userInfo.name);
 
         console.log(user);
         console.log(user.fullName);
@@ -87,13 +90,13 @@ export default function Profile() {
               role="list"
               className="divide-y divide-gray-100 rounded-md border border-gray-200"
             >
-              {user.favouriteLocationIds.map((id) => {
+              {user.favouriteLocations.map(([id, name]) => {
                 return (
                   <Link key={id} href={`/locations/${id}`}>
                     <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                          <span className="truncate font-medium">{id}</span>
+                          <span className="truncate font-medium">{name}</span>
                         </div>
                       </div>
                     </li>
@@ -112,13 +115,13 @@ export default function Profile() {
               role="list"
               className="divide-y divide-gray-100 rounded-md border border-gray-200"
             >
-              {user.completedLocationIds.map((id) => {
+              {user.completedLocations.map(([id, name]) => {
                 return (
                   <Link key={id} href={`/locations/${id}`}>
                     <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                          <span className="truncate font-medium">{id}</span>
+                          <span className="truncate font-medium">{name}</span>
                         </div>
                       </div>
                     </li>
@@ -137,13 +140,13 @@ export default function Profile() {
               role="list"
               className="divide-y divide-gray-100 rounded-md border border-gray-200"
             >
-              {user.favouriteRouteIds.map((id) => {
+              {user.favouriteRoutes.map(([id, name]) => {
                 return (
                   <Link key={id} href={`/routes/${id}`}>
                     <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                          <span className="truncate font-medium">{id}</span>
+                          <span className="truncate font-medium">{name}</span>
                         </div>
                       </div>
                     </li>
@@ -162,13 +165,13 @@ export default function Profile() {
               role="list"
               className="divide-y divide-gray-100 rounded-md border border-gray-200"
             >
-              {user.completedRouteIds.map((id) => {
+              {user.completedRoutes.map(([id, name]) => {
                 return (
                   <Link key={id} href={`/routes/${id}`}>
                     <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                       <div className="flex w-0 flex-1 items-center">
                         <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                          <span className="truncate font-medium">{id}</span>
+                          <span className="truncate font-medium">{name}</span>
                         </div>
                       </div>
                     </li>

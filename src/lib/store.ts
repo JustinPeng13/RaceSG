@@ -33,6 +33,11 @@ const getSession = async (sessionId: string) => {
 const setSession = async (sessionId: string, session: Session) => {
   const sessionRef = ref(db, `sessions/${sessionId}`);
 
+  if (session.userInfo != undefined) {
+    session.userInfo.name = session.userInfo["myinfo.name"]
+    delete session.userInfo["myinfo.name"]
+  }
+  
   set(sessionRef, session);
 };
 

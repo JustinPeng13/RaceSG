@@ -1,6 +1,6 @@
-# RoadSG - The Ultimate Adventure App for Exploring Singapore
+# RaceSG - The Ultimate Adventure App for Exploring Singapore
 
-![RoadSG Logo](src/assets/roadsg-logo.png)
+![RaceSG Logo](public/logo-full.jpg)
 
 RoadSG is an exhilarating race-meets-geocaching app designed to unlock the hidden wonders of Singapore. Whether you're a local or a tourist, this app provides an extraordinary way to discover the cultural gems, breathtaking sights, and captivating stories of this vibrant city-state. Get ready to embark on an unforgettable journey and redefine how you explore Singapore.
 You can read more about our [Business Proposal](Proposal.pdf) here.
@@ -15,25 +15,26 @@ Browse through our user-friendly website to uncover a meticulously curated list 
 
 ### 2. Seamless Authentication with sgID
 
+At RaceSG, we prioritize user convenience and security. That's why we have integrated with sgID, a Singapore government identity provider, to offer seamless authentication for local users. With sgID, Singapore residents can easily authenticate themselves and share government-verified data via the Singpass mobile app.
 ![Singpass login](src/assets/singpass.png)
 
 At RoadSG, we prioritize user convenience and security. That's why we have integrated with sgID, a Singapore government identity provider, to offer seamless authentication for local users. With sgID, Singapore residents can easily authenticate themselves and share government-verified data via the Singpass mobile app.
 
-By connecting to sgID, RoadSG ensures a trusted and reliable verification process. Users can rest assured that their identities are securely verified by the Singapore government. This streamlined authentication process enhances user experience and provides a seamless onboarding journey.
+By connecting to sgID, RaceSG ensures a trusted and reliable verification process. Users can rest assured that their identities are securely verified by the Singapore government. This streamlined authentication process enhances user experience and provides a seamless onboarding journey.
 
-Integrating with sgID allows RoadSG to access essential user information, such as full names, ensuring a personalized and tailored experience. Users can enjoy the benefits of sgID authentication without any additional costs. It's a hassle-free way to verify and authenticate local users, creating a secure and trusted environment for all RoadSG adventurers.
+Integrating with sgID allows RaceSG to access essential user information, such as full names, ensuring a personalized and tailored experience. Users can enjoy the benefits of sgID authentication without any additional costs. It's a hassle-free way to verify and authenticate local users, creating a secure and trusted environment for all RaceSG adventurers.
 
-Experience the power of sgID integration by trying out our demo app and witness the smooth login flow for yourself. Connect with RoadSG and unlock a world of captivating adventures with the confidence of sgID authentication.
+Experience the power of sgID integration by trying out our demo app and witness the smooth login flow for yourself. Connect with RaceSG and unlock a world of captivating adventures with the confidence of sgID authentication.
 
-### 3. Sustainable Adventure
+International tourists and users without Singpass may still use RaceSG by traditional email and password credentials.
 
-![Alt Text](./src/assets/qrcode.gif)
+### 3. Sustainable Adventures
 
-At RoadSG, sustainability is at the core of our mission. We utilize reusable QR codes to encourage eco-friendly practices during your adventures. By scanning these codes, you'll unlock thrilling challenges that deepen your connection to the heritage and beauty of each location. Capture the perfect moment with your surroundings or test your knowledge with intriguing trivia.
+At RaceSG, sustainability is at the core of our mission. We utilize reusable QR codes to encourage eco-friendly practices during your adventures. By scanning these codes, you'll unlock thrilling challenges that deepen your connection to the heritage and beauty of each location. Capture the perfect moment with your surroundings or test your knowledge with intriguing trivia.
 
 ### 4. Amazing Races
 
-Local users hold the power to create their own extraordinary adventures through the Amazing Races feature. Curate and design timed events where participants must navigate a series of special stations in sequential order. Aim to emerge victorious and claim exceptional prizes. Each race is an adrenaline-fueled battle for the top spot, making RoadSG an app that brings out your competitive spirit.
+Local users hold the power to create their own extraordinary adventures through the Amazing Races feature. Curate and design timed events where participants must navigate a series of special stations in sequential order. Aim to emerge victorious and claim exceptional prizes. Each race is an adrenaline-fueled battle for the top spot, making RaceSG an app that brings out your competitive spirit.
 
 ### 5. Earn Rewards
 
@@ -43,7 +44,8 @@ As you conquer each location and complete challenges, you'll earn points that re
 
 ## Installation
 
-To use RoadSG, follow these steps:
+RaceSG has been deployed on [https://race-sg.vercel.app/](https://race-sg.vercel.app/) for demo purposes. If you
+would like to install RaceSG, follow these steps:
 
 1. Clone this repository to your local machine.
 
@@ -63,37 +65,35 @@ pnpm dev
 
 > **Note:** Please be cautious when handling the Firebase API key included in this repository. Although the API key is not a private key and is only used to identify the project with Google's servers, it's essential to exercise caution when working with any sensitive keys. It is always recommended to review the tech stack you are working with and handle any keys with care.
 
-> **Note:** The sgID key is not provided in this case as it is meant to be kept confidential. Therefore, when testing the login with SingPass, you will encounter an error. To resolve this, you need to replace the placeholder keys with your own.
-
+> **Note:** The sgID key is not provided in this case as it is meant to be kept confidential. Therefore, when testing the login with SingPass, you will encounter an error. To resolve this, you need to add in your own keys into a _.env.local_ file placed at the root directory. It should look something like this.
+```
+SGID_CLIENT_ID=<your client id>
+SGID_CLIENT_SECRET=<your client secret>
+SGID_PRIVATE_KEY=<your private key>
+```
 Visit [https://developer.id.gov.sg/](https://developer.id.gov.sg/) to create your own key and refer to the [documentation](https://docs.id.gov.sg/introduction/overview) for more information about sgID.
 
 If you face any issues while dealing with the sgID authentication component of our product, please feel free to reach out to @yu_jieee on Instagram or Telegram for troubleshooting assistance.
 
-## Known issues
-
-- **Sign up for Foreign Tourists**: We understand the importance of catering to foreign tourists who want to explore Singapore. We are actively working on enabling sign-up functionality for foreign users using email and password. However, please note that we are currently refining the implementation and ensuring the seamless saving of state between sessions. While the sign-up feature has been partially implemented, there are some outstanding issues that need to be addressed. Therefore, we kindly advise **refraining from using it at this time**.
-
-Kindly stick to using SingPass login for now. Stay tuned for updates as we make RoadSG more inclusive and accessible to all.
-
 ## Coming Soon
 
-We have exciting enhancements in the pipeline for RoadSG! Here's a sneak peek at what's coming:
+We have exciting enhancements in the pipeline for RaceSG! Here's a sneak peek at what's coming:
 
-- **Favoriting Locations**: Save your favorite locations within RoadSG so you can easily access them anytime. Whether it's a hidden gem or a stunning landmark, mark it as a favorite and share it with others on your favorite social media platforms.
+- **Favoriting Locations**: Save your favorite locations within RaceSG so you can easily access them anytime. Whether it's a hidden gem or a stunning landmark, mark it as a favorite and share it with others on your favorite social media platforms.
 
 - **Reward Marketplace**: Earn valuable points by completing challenges and conquering stations. Soon, you'll be able to exchange those points for a range of exciting rewards. Explore Singapore and reap the benefits with our curated selection of rewards, generously sponsored by the Singapore government under schemes like Rediscover Singapore.
 
-- **Leaderboard Ranking**: Compete with other RoadSG users and see how you stack up against fellow adventurers. Our upcoming leaderboard ranking system will showcase your performance and dedication. Climb the ranks, earn bragging rights, and establish yourself as a true explorer extraordinaire.
+- **Leaderboard Ranking**: Compete with other RaceSG users and see how you stack up against fellow adventurers. Our upcoming leaderboard ranking system will showcase your performance and dedication. Climb the ranks, earn bragging rights, and establish yourself as a true explorer extraordinaire.
 
-Stay tuned for these enhancements, as we continue to evolve RoadSG to provide you with an even more immersive and rewarding experience. Adventure awaits!
+Stay tuned for these enhancements, as we continue to evolve RaceSG to provide you with an even more immersive and rewarding experience. Adventure awaits!
 
 ## Contributing
 
-We welcome contributions from everyone! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request. Together, let's make RoadSG even better.
+We welcome contributions from everyone! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request. Together, let's make RaceSG even better.
 
 ## Support
 
-If you encounter any issues or need assistance with RoadSG, please contact our support team at support@roadsg.com. We are here to help you make the most of your adventure.
+If you encounter any issues or need assistance with RaceSG, please contact our support team at support@Racesg.com. We are here to help you make the most of your adventure.
 
 ## License
 
@@ -101,7 +101,7 @@ This project is licensed under the [MIT License](LICENSE.md).
 
 ## Acknowledgements
 
-We like to thank our dedicated community of adventurers who have made RoadSG an app that fosters connections and unforgettable memories.
+We like to thank our dedicated community of adventurers who have made RaceSG an app that fosters connections and unforgettable memories.
 
 ## Stay Connected
 
@@ -114,7 +114,7 @@ Our Team Members:
 - Xie Yiliu: [@xied09e](https://www.instagram.com/xied09e/)
 - Tiang Hui Zheng: [@heyzec](https://www.instagram.com/heyzec/)
 
-Join our vibrant community of explorers and share your RoadSG experiences using the hashtag #RoadSGAdventures.
+Join our vibrant community of explorers and share your RaceSG experiences using the hashtag #RaceSGAdventures.
 
 ---
 

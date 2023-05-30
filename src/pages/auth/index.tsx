@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type FormType = "Locals" | "Tourists";
 
@@ -11,6 +12,8 @@ export default function AuthPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const router = useRouter();
 
   const handleTabClick = (type: FormType) => {
     setFormType(type);
@@ -50,7 +53,7 @@ export default function AuthPage() {
     }
 
     try {
-      const response = await fetch("../api/signup", {
+      const response = await fetch("../api/signupFirebaseEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +62,7 @@ export default function AuthPage() {
       });
       if (response.ok) {
         const data = await response.json();
-        alert("Account created successfully");
+        alert("Account created successfully. Please login.");
         console.log("Account created successfully:", data);
       } else {
         const data = await response.json();
@@ -74,7 +77,7 @@ export default function AuthPage() {
     e.preventDefault();
 
     try {
-      const response = await fetch("../api/login", {
+      const response = await fetch("../api/loginFirebaseEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -85,12 +88,16 @@ export default function AuthPage() {
         const data = await response.json();
         alert("Logged in successfully");
         console.log("Logged in successfully:", data);
+        sessionStorage.setItem("isLoggedIn", "true");
+        router.push("/map")
       } else {
+        alert("Wrong email or password. Please try again.")
         console.error(
           "Error logging in:",
           response.status,
           response.statusText
         );
+        sessionStorage.setItem("isLoggedIn", "false");
       }
     } catch (error) {
       console.error("Error logging in:", error);

@@ -23,10 +23,10 @@ const setUser = async (fullName: string) => {
     fullName: fullName,
     email: "",
     points: 0,
-    favouriteLocationIds: [""],
-    completedLocationIds: [""],
-    favouriteRouteIds: [""],
-    completedRouteIds: [""],
+    favouriteLocations: [],
+    completedLocations: [],
+    favouriteRoutes: [],
+    completedRoutes: [],
   };
 
   set(userRef, emptyUser);
