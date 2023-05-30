@@ -6,7 +6,6 @@ import redirectAnimationData from "../assets/progressbar.json";
 import { useRouter } from "next/router";
 import { setUser, getUser } from "../lib/userstore";
 import { MouseEvent } from "react";
-import Link from "next/link";
 
 type UserInfoRes = {
   sub?: string;
@@ -75,8 +74,8 @@ export default function Home() {
       const timeout = setTimeout(() => {
         setAnimationVisible(false);
         setTimeout(() => {
-          router.push("/locations"); // Replace "/locations" with your desired URL
-        }, 1000); // Delay the redirection by 1000 milliseconds (1 second)
+          router.push("/locations");
+        }, 1000);
       }, 3000);
 
       return () => clearTimeout(timeout);

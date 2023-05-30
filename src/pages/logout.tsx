@@ -1,26 +1,28 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Lottie from "lottie-react";
+import logoutAnimationData from "../assets/logout.json";
 
 const LogoutPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // Simulating logout logic
-    // Replace this with your actual logout logic
     const logout = async () => {
-      // Perform logout actions (e.g., clearing session, token, etc.)
-      // ...
-
-      // Redirect to the login page after logout
-      router.push("/");
+      setTimeout(() => {
+        router.push("/");
+      }, 2500);
     };
 
     logout();
   }, [router]);
 
   return (
-    <div>
-      <h1>Logging Out...</h1>
+    <div
+      style={{
+        position: "absolute",
+      }}
+    >
+      <Lottie animationData={logoutAnimationData} />
     </div>
   );
 };
