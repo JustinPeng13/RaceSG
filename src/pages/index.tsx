@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
-import animationData from "../assets/welcome.json";
+import welcomeAnimationData from "../assets/welcome.json";
+import loginAnimationData from "../assets/login.json";
+import redirectAnimationData from "../assets/progressbar.json";
 import { useRouter } from "next/router";
 import { setUser, getUser } from "../lib/userstore";
+import { MouseEvent } from "react";
 
 type UserInfoRes = {
   sub?: string;
@@ -16,6 +19,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<UserInfoRes | null>(null);
   const [animationVisible, setAnimationVisible] = useState(true);
+  const [showRedirectAnimation, setShowRedirectAnimation] = useState(false);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -26,6 +30,19 @@ export default function Home() {
   };
 
   const router = useRouter();
+
+  const handleClick = (event: MouseEvent<HTMLDivElement>) => {
+    // Handle any additional logic before redirection, if needed
+    setShowRedirectAnimation(true);
+  };
+
+  useEffect(() => {
+    if (showRedirectAnimation) {
+      setTimeout(() => {
+        router.push("/auth");
+      }, 2000);
+    }
+  }, [showRedirectAnimation]);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -56,8 +73,8 @@ export default function Home() {
       const timeout = setTimeout(() => {
         setAnimationVisible(false);
         setTimeout(() => {
-          router.push("/locations"); // Replace "/locations" with your desired URL
-        }, 1000); // Delay the redirection by 1000 milliseconds (1 second)
+          router.push("/locations");
+        }, 1000);
       }, 3000);
 
       return () => clearTimeout(timeout);
@@ -79,10 +96,25 @@ export default function Home() {
             zIndex: -1,
           }}
         >
-          <Lottie animationData={animationData} />
+          <Lottie animationData={welcomeAnimationData} />
+        </div>
+      ) : showRedirectAnimation ? (
+        <div
+          style={{
+            position: "absolute",
+          }}
+        >
+          <Lottie animationData={redirectAnimationData} />
         </div>
       ) : (
-        <div>Please log in.</div>
+        <div
+          style={{
+            position: "absolute",
+          }}
+          onClick={handleClick}
+        >
+          <Lottie animationData={loginAnimationData} />
+        </div>
       )}
     </div>
   );

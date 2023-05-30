@@ -1,5 +1,5 @@
 import { app } from "../../firebaseConfig";
-import { getDatabase, ref, set, get, serverTimestamp } from "firebase/database";
+import { getDatabase, ref, set, get } from "firebase/database";
 
 // Get a reference to the Realtime Database
 const db = getDatabase(app);

@@ -27,7 +27,7 @@
   transform: scale(1.1);
 }
 .tab.active {
-  border-bottom: 5px solid #B799FF;
+  border-bottom: 5px solid #8e94f2;
 }
 
 .form {
@@ -45,20 +45,19 @@
   border: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   width: 200px;
-
 }
 
 .form input[type="submit"] {
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #4caf50;
+  background-color: #dab6fc;
   color: white;
   cursor: pointer;
   width: 200px;
 }
 
 .form input[type="submit"]:hover {
-  background-color: #43a047;
+  background-color: #8e94f2;
 }
 
 /* For buttons */
@@ -70,7 +69,7 @@
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background-color: #AEE2FF;
+  background-color: #87bcde;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -82,7 +81,7 @@
 
 .button:hover,
 .button:focus {
-  background-color: #9BD1FF;
+  background-color: #1a4567;
 }
 
 .button:active {
@@ -90,12 +89,12 @@
 }
 
 .button--local {
-  background-color: #ACBCFF
+  background-color: #bbadff;
 }
 
 .button--local:hover,
 .button--local:focus {
-  background-color: #9BAEFF;
+  background-color: #5f4b8bff;
 }
 
 .slideRight {

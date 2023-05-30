@@ -2,11 +2,23 @@ import Link from "next/link";
 import { getDatabase, ref, get } from "firebase/database";
 import { app } from "../../../firebaseConfig";
 import { useEffect, useState } from "react";
+import { Card } from "react-bootstrap";
 
 export default function Locations() {
   const db = getDatabase(app);
 
   const [locations, setLocations] = useState({});
+  const [selectedCard, setSelectedCard] = useState<string | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
+  const handleCardClick = (id: string) => {
+    setSelectedCard(id);
+  };
+
+  const handleCardHover = (id: string) => {
+    setHoveredCard(id);
+  };
+
   useEffect(() => {
     get(ref(db, "locations"))
       .then((snapshot) => {
@@ -28,27 +40,36 @@ export default function Locations() {
           Locations
         </h1>
       </div>
-      <ul role="list" className="divide-y divide-gray-100">
+      <div className="grid gap-4 mx-auto max-w-7xl px-4">
         {Object.entries(locations).map(([id, val]) => {
           const loc = val as ILocation;
           return (
             <Link key={id} href={`/locations/${id}`}>
-              <li className="flex justify-between gap-x-6 py-5">
-                <div className="flex gap-x-4">
-                  <div className="min-w-0 flex-auto">
-                    <p className="text-lg font-semibold leading-6 text-gray-900">
-                      {loc.name}
-                    </p>
-                    <p className="mt-1 text-sm leading-5 text-gray-500">
-                      {loc.desc}
-                    </p>
-                  </div>
+              <Card
+                className={`p-4 flex flex-col mb-2 justify-between rounded-lg shadow ${
+                  hoveredCard === id
+                    ? "bg-gray-100 scale-105"
+                    : hoveredCard === id
+                    ? "bg-blue-200"
+                    : "bg-white"
+                }`}
+                onMouseEnter={() => handleCardHover(id)}
+                onMouseLeave={() => setHoveredCard(null)}
+                onClick={() => handleCardClick(id)}
+              >
+                <div>
+                  <Card.Title className="text-lg font-semibold">
+                    {loc.name}
+                  </Card.Title>
+                  <Card.Text className="text-sm text-gray-500">
+                    {loc.desc}
+                  </Card.Text>
                 </div>
-              </li>
+              </Card>
             </Link>
           );
         })}
-      </ul>
+      </div>
     </>
   );
 }
