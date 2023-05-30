@@ -53,10 +53,10 @@ export default function Home() {
 
         // Separate the boolean and data from the response
         const { isLoggedIn, ...data } = response;
-        console.log(data.userInfo["myinfo.name"]);
+        console.log(data.userInfo.name);
 
         setIsLoggedIn(isLoggedIn);
-        setUser(data.userInfo["myinfo.name"]);
+        setUser(data.userInfo.name);
         setData(data);
       } catch (error) {
         console.error(error instanceof Error ? error.message : String(error));

@@ -36,7 +36,7 @@ export default function Profile() {
 
         // Separate the boolean and data from the response
         const { isLoggedIn, ...data } = response;
-        const user = await getUser(data.userInfo["myinfo.name"]);
+        const user = await getUser(data.userInfo.name);
 
         console.log(user);
         console.log(user.fullName);

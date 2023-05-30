@@ -52,5 +52,5 @@ export default async function handler(
   };
   setSession(sessionId, updatedSession);
 
-  res.redirect("/");
+  res.redirect("/logged-in");
 }

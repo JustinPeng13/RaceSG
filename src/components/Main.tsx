@@ -1,15 +1,9 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
 const navigation = [
   { name: "Map", href: "/map", current: false },
   { name: "Locations", href: "/locations", current: false },
@@ -27,6 +21,43 @@ function classNames(...classes: string[]) {
 
 export default function Main({ children }: { children: React.ReactNode }) {
   const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      try {
+        const res = await fetch("/api/userinfo", { credentials: "include" });
+        const response = await res.json();
+        const { isLoggedIn, ...data } = response;
+        if (isLoggedIn) {
+          sessionStorage.setItem("isLoggedIn", "true");
+        }
+      } catch {
+        return;
+      }
+    };
+    if (sessionStorage.getItem("isLoggedIn") != "true") {
+      getUserInfo();
+    }
+  }, [router]);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("isLoggedIn") == "true") {
+      setIsLoggedIn(true);
+    }
+  });
+
+  useEffect(() => {
+    const excludedPaths = ["/auth", "/logged-in", "/logout"];
+    console.log(router.asPath);
+    if (
+      !excludedPaths.includes(router.asPath) &&
+      sessionStorage.getItem("isLoggedIn") != "true" &&
+      !isLoggedIn
+    ) {
+      router.push("/auth");
+    }
+  }, []);
 
   useEffect(() => {
     navigation.forEach((obj) => {
@@ -76,47 +107,49 @@ export default function Main({ children }: { children: React.ReactNode }) {
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
                       {/* Profile dropdown */}
-                      <Menu as="div" className="relative ml-3">
-                        <div>
-                          <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                            <span className="sr-only">Open user menu</span>
-                            <Image
-                              className="rounded-full"
-                              src="/logo.png"
-                              alt=""
-                              width={32}
-                              height={32}
-                            />
-                          </Menu.Button>
-                        </div>
-                        <Transition
-                          as={Fragment}
-                          enter="transition ease-out duration-100"
-                          enterFrom="transform opacity-0 scale-95"
-                          enterTo="transform opacity-100 scale-100"
-                          leave="transition ease-in duration-75"
-                          leaveFrom="transform opacity-100 scale-100"
-                          leaveTo="transform opacity-0 scale-95"
-                        >
-                          <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            {userNavigation.map((item) => (
-                              <Menu.Item key={item.name}>
-                                {({ active }) => (
-                                  <a
-                                    href={item.href}
-                                    className={classNames(
-                                      active ? "bg-gray-100" : "",
-                                      "block px-4 py-2 text-sm text-gray-700"
-                                    )}
-                                  >
-                                    {item.name}
-                                  </a>
-                                )}
-                              </Menu.Item>
-                            ))}
-                          </Menu.Items>
-                        </Transition>
-                      </Menu>
+                      {isLoggedIn && (
+                        <Menu as="div" className="relative ml-3">
+                          <div>
+                            <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                              <span className="sr-only">Open user menu</span>
+                              <Image
+                                className="rounded-full bg-white"
+                                src="/user.png"
+                                alt=""
+                                width={32}
+                                height={32}
+                              />
+                            </Menu.Button>
+                          </div>
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-100"
+                            enterFrom="transform opacity-0 scale-95"
+                            enterTo="transform opacity-100 scale-100"
+                            leave="transition ease-in duration-75"
+                            leaveFrom="transform opacity-100 scale-100"
+                            leaveTo="transform opacity-0 scale-95"
+                          >
+                            <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                              {userNavigation.map((item) => (
+                                <Menu.Item key={item.name}>
+                                  {({ active }) => (
+                                    <a
+                                      href={item.href}
+                                      className={classNames(
+                                        active ? "bg-gray-100" : "",
+                                        "block px-4 py-2 text-sm text-gray-700"
+                                      )}
+                                    >
+                                      {item.name}
+                                    </a>
+                                  )}
+                                </Menu.Item>
+                              ))}
+                            </Menu.Items>
+                          </Transition>
+                        </Menu>
+                      )}
                     </div>
                   </div>
                   <div className="-mr-2 flex md:hidden">
@@ -158,24 +191,17 @@ export default function Main({ children }: { children: React.ReactNode }) {
                     </Disclosure.Button>
                   ))}
                 </div>
+                {isLoggedIn && 
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
                       <Image
-                        className="rounded-full"
-                        src="/logo.png"
+                        className="rounded-full bg-white"
+                        src="/user.png"
                         alt=""
                         width={32}
                         height={32}
                       />
-                    </div>
-                    <div className="ml-3">
-                      <div className="text-base font-medium leading-none text-white">
-                        {user.name}
-                      </div>
-                      <div className="text-sm font-medium leading-none text-gray-400">
-                        {user.email}
-                      </div>
                     </div>
                   </div>
                   <div className="mt-3 space-y-1 px-2">
@@ -190,7 +216,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
                       </Disclosure.Button>
                     ))}
                   </div>
-                </div>
+                </div>}
               </Disclosure.Panel>
             </>
           )}
