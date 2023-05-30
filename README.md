@@ -1,6 +1,6 @@
 # RoadSG - The Ultimate Adventure App for Exploring Singapore
 
-![RoadSG Logo](roadsg-logo.png)
+![RoadSG Logo](src/assets/roadsg-logo.png)
 
 RoadSG is an exhilarating race-meets-geocaching app designed to unlock the hidden wonders of Singapore. Whether you're a local or a tourist, this app provides an extraordinary way to discover the cultural gems, breathtaking sights, and captivating stories of this vibrant city-state. Get ready to embark on an unforgettable journey and redefine how you explore Singapore.
 
@@ -16,7 +16,7 @@ At RoadSG, sustainability is at the core of our mission. We utilize reusable QR 
 
 ### 3. Earn Rewards
 
-As you conquer each location and complete challenges, you'll earn points that reflect your performance and dedication. These valuable points can be exchanged for exclusive rewards sponsored by the Singapore government under schemes like Rediscover Singapore. Imagine gaining free entry to renowned attractions like the Science Center or Jurong Bird Park. Your exploration of Singapore will be rewarded beyond your imagination.
+As you conquer each location and complete challenges, you'll earn points that reflect your performance and dedication. These valuable points can be exchanged for exclusive rewards sponsored by the Singapore government under schemes like Rediscover Singapore. Imagine gaining free entry to renowned attractions like the Science Center or National Gallery Singapore. Your exploration of Singapore will be rewarded beyond your imagination.
 
 ### 4. Amazing Races
 
@@ -41,6 +41,10 @@ pnpm dev
 ```
 
 4. Access the app in your web browser at `http://localhost:3000`.
+
+> **Note:** Please be cautious when handling the Firebase API key included in this repository. Although the API key is not a private key and is only used to identify the project with Google's servers, it's essential to exercise caution when working with any sensitive keys. It is always recommended to review the tech stack you are working with and handle any keys with care.
+
+> **Note:** The sgID key is not provided in this case as it is meant to be kept confidential. Therefore, when testing the login with SingPass, you will encounter an error. To resolve this, you need to replace the placeholder keys with your own. If you face any issues while dealing with the sgID authentication component of our product, please feel free to reach out to @yu_jieee on Instagram or Telegram for troubleshooting assistance.
 
 ## Contributing
 
