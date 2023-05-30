@@ -50,6 +50,24 @@ Visit [https://developer.id.gov.sg/](https://developer.id.gov.sg/) to create you
 
 If you face any issues while dealing with the sgID authentication component of our product, please feel free to reach out to @yu_jieee on Instagram or Telegram for troubleshooting assistance.
 
+## Known issues
+
+- **Sign up for Foreign Tourists**: We understand the importance of catering to foreign tourists who want to explore Singapore. We are actively working on enabling sign-up functionality for foreign users using email and password. However, please note that we are currently refining the implementation and ensuring the seamless saving of state between sessions. While the sign-up feature has been partially implemented, there are some outstanding issues that need to be addressed. Therefore, we kindly advise **refraining from using it at this time**.
+
+Kindly stick to using SingPass login for now. Stay tuned for updates as we make RoadSG more inclusive and accessible to all.
+
+## Coming Soon
+
+We have exciting enhancements in the pipeline for RoadSG! Here's a sneak peek at what's coming:
+
+- **Favoriting Locations**: Save your favorite locations within RoadSG so you can easily access them anytime. Whether it's a hidden gem or a stunning landmark, mark it as a favorite and share it with others on your favorite social media platforms.
+
+- **Reward Marketplace**: Earn valuable points by completing challenges and conquering stations. Soon, you'll be able to exchange those points for a range of exciting rewards. Explore Singapore and reap the benefits with our curated selection of rewards, generously sponsored by the Singapore government under schemes like Rediscover Singapore.
+
+- **Leaderboard Ranking**: Compete with other RoadSG users and see how you stack up against fellow adventurers. Our upcoming leaderboard ranking system will showcase your performance and dedication. Climb the ranks, earn bragging rights, and establish yourself as a true explorer extraordinaire.
+
+Stay tuned for these enhancements, as we continue to evolve RoadSG to provide you with an even more immersive and rewarding experience. Adventure awaits!
+
 ## Contributing
 
 We welcome contributions from everyone! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request. Together, let's make RoadSG even better.
@@ -64,7 +82,7 @@ This project is licensed under the [MIT License](LICENSE.md).
 
 ## Acknowledgements
 
-We would like to express our gratitude to the Singapore government for their generous support and sponsorship of exclusive rewards through schemes like Rediscover Singapore. We also thank our dedicated community of adventurers who have made RoadSG an app that fosters connections and unforgettable memories.
+We like to thank our dedicated community of adventurers who have made RoadSG an app that fosters connections and unforgettable memories.
 
 ## Stay Connected
 
