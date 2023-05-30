@@ -1,45 +1,41 @@
-import { Fragment, useEffect } from 'react';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
+import { Fragment, useEffect } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/router";
+import Image from "next/image";
 
 const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
+  name: "Tom Cook",
+  email: "tom@example.com",
   imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
+    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+};
 const navigation = [
-  { name: 'Map', href: '/map', current: false },
-  { name: 'Locations', href: '/locations', current: false },
-  { name: 'Routes', href: '/routes', current: false },
-  { name: 'Contribute', href: '/contribute', current: false },
-]
+  { name: "Map", href: "/map", current: false },
+  { name: "Locations", href: "/locations", current: false },
+  { name: "Routes", href: "/routes", current: false },
+  { name: "Contribute", href: "/contribute", current: false },
+];
 const userNavigation = [
-  { name: 'Profile', href: '/profile' },
-  { name: 'Log out', href: '/logout' },
-]
+  { name: "Profile", href: "/profile" },
+  { name: "Log out", href: "/logout", showWhenLoggedIn: true },
+];
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
-export default function Main({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const router = useRouter()
+export default function Main({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
 
   useEffect(() => {
-    navigation.forEach(obj => {
+    navigation.forEach((obj) => {
       if (router.asPath.includes(obj.href)) {
         obj.current = true;
       }
-    })
-  }, [router])
-  
+    });
+  }, [router]);
+
   return (
     <>
       <div className="min-h-full">
@@ -65,11 +61,11 @@ export default function Main({
                             href={item.href}
                             className={classNames(
                               item.current
-                                ? 'bg-gray-900 text-white'
-                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                              'rounded-md px-3 py-2 text-sm font-medium'
+                                ? "bg-gray-900 text-white"
+                                : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                              "rounded-md px-3 py-2 text-sm font-medium"
                             )}
-                            aria-current={item.current ? 'page' : undefined}
+                            aria-current={item.current ? "page" : undefined}
                           >
                             {item.name}
                           </a>
@@ -84,7 +80,13 @@ export default function Main({
                         <div>
                           <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="sr-only">Open user menu</span>
-                            <Image className="rounded-full" src="/logo.png" alt="" width={32} height={32} />
+                            <Image
+                              className="rounded-full"
+                              src="/logo.png"
+                              alt=""
+                              width={32}
+                              height={32}
+                            />
                           </Menu.Button>
                         </div>
                         <Transition
@@ -103,8 +105,8 @@ export default function Main({
                                   <a
                                     href={item.href}
                                     className={classNames(
-                                      active ? 'bg-gray-100' : '',
-                                      'block px-4 py-2 text-sm text-gray-700'
+                                      active ? "bg-gray-100" : "",
+                                      "block px-4 py-2 text-sm text-gray-700"
                                     )}
                                   >
                                     {item.name}
@@ -122,9 +124,15 @@ export default function Main({
                     <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open main menu</span>
                       {open ? (
-                        <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                        <XMarkIcon
+                          className="block h-6 w-6"
+                          aria-hidden="true"
+                        />
                       ) : (
-                        <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                        <Bars3Icon
+                          className="block h-6 w-6"
+                          aria-hidden="true"
+                        />
                       )}
                     </Disclosure.Button>
                   </div>
@@ -139,10 +147,12 @@ export default function Main({
                       as="a"
                       href={item.href}
                       className={classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                        'block rounded-md px-3 py-2 text-base font-medium'
+                        item.current
+                          ? "bg-gray-900 text-white"
+                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                        "block rounded-md px-3 py-2 text-base font-medium"
                       )}
-                      aria-current={item.current ? 'page' : undefined}
+                      aria-current={item.current ? "page" : undefined}
                     >
                       {item.name}
                     </Disclosure.Button>
@@ -151,11 +161,21 @@ export default function Main({
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
-                      <Image className="rounded-full" src="/logo.png" alt="" width={32} height={32} />
+                      <Image
+                        className="rounded-full"
+                        src="/logo.png"
+                        alt=""
+                        width={32}
+                        height={32}
+                      />
                     </div>
                     <div className="ml-3">
-                      <div className="text-base font-medium leading-none text-white">{user.name}</div>
-                      <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
+                      <div className="text-base font-medium leading-none text-white">
+                        {user.name}
+                      </div>
+                      <div className="text-sm font-medium leading-none text-gray-400">
+                        {user.email}
+                      </div>
                     </div>
                   </div>
                   <div className="mt-3 space-y-1 px-2">
@@ -177,9 +197,11 @@ export default function Main({
         </Disclosure>
 
         <main className="bg-white shadow">
-          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{ children }</div>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            {children}
+          </div>
         </main>
       </div>
     </>
-  )
+  );
 }

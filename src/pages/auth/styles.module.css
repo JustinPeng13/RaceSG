@@ -27,7 +27,7 @@
   transform: scale(1.1);
 }
 .tab.active {
-  border-bottom: 5px solid #B799FF;
+  border-bottom: 5px solid #8e94f2;
 }
 
 .form {
@@ -45,7 +45,6 @@
   border: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   width: 200px;
-
 }
 
 .form input[type="submit"] {
@@ -70,7 +69,7 @@
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background-color: #AEE2FF;
+  background-color: #87bcde;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -82,7 +81,7 @@
 
 .button:hover,
 .button:focus {
-  background-color: #9BD1FF;
+  background-color: #1a4567;
 }
 
 .button:active {
@@ -90,12 +89,12 @@
 }
 
 .button--local {
-  background-color: #ACBCFF
+  background-color: #bbadff;
 }
 
 .button--local:hover,
 .button--local:focus {
-  background-color: #9BAEFF;
+  background-color: #5f4b8bff;
 }
 
 .slideRight {
