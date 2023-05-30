@@ -8,9 +8,13 @@ RoadSG is an exhilarating race-meets-geocaching app designed to unlock the hidde
 
 ### 1. Explore Captivating Locations
 
+![Locations](src/assets/locations.png)
+
 Browse through our user-friendly website to uncover a meticulously curated list of Singapore's most intriguing locations. Each location holds secrets waiting to be discovered. As you venture into the heart of each place, a QR code awaits, acting as a gateway to a world of exciting challenges and fascinating trivia.
 
 ### 2. Seamless Authentication with sgID
+
+![Singpass login](src/assets/singpass.png)
 
 At RoadSG, we prioritize user convenience and security. That's why we have integrated with sgID, a Singapore government identity provider, to offer seamless authentication for local users. With sgID, Singapore residents can easily authenticate themselves and share government-verified data via the Singpass mobile app.
 
@@ -21,6 +25,8 @@ Integrating with sgID allows RoadSG to access essential user information, such a
 Experience the power of sgID integration by trying out our demo app and witness the smooth login flow for yourself. Connect with RoadSG and unlock a world of captivating adventures with the confidence of sgID authentication.
 
 ### 3. Sustainable Adventure
+
+![Lottie Animation](https://assets1.lottiefiles.com/packages/lf20_hnltamej.json)
 
 At RoadSG, sustainability is at the core of our mission. We utilize reusable QR codes to encourage eco-friendly practices during your adventures. By scanning these codes, you'll unlock thrilling challenges that deepen your connection to the heritage and beauty of each location. Capture the perfect moment with your surroundings or test your knowledge with intriguing trivia.
 
