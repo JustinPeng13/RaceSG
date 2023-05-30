@@ -64,8 +64,12 @@ pnpm dev
 
 > **Note:** Please be cautious when handling the Firebase API key included in this repository. Although the API key is not a private key and is only used to identify the project with Google's servers, it's essential to exercise caution when working with any sensitive keys. It is always recommended to review the tech stack you are working with and handle any keys with care.
 
-> **Note:** The sgID key is not provided in this case as it is meant to be kept confidential. Therefore, when testing the login with SingPass, you will encounter an error. To resolve this, you need to replace the placeholder keys with your own.
-
+> **Note:** The sgID key is not provided in this case as it is meant to be kept confidential. Therefore, when testing the login with SingPass, you will encounter an error. To resolve this, you need to add in your own keys into a _.env.local_ file placed at the root directory. It should look something like this.
+```
+SGID_CLIENT_ID=<your client id>
+SGID_CLIENT_SECRET=<your client secret>
+SGID_PRIVATE_KEY=<your private key>
+```
 Visit [https://developer.id.gov.sg/](https://developer.id.gov.sg/) to create your own key and refer to the [documentation](https://docs.id.gov.sg/introduction/overview) for more information about sgID.
 
 If you face any issues while dealing with the sgID authentication component of our product, please feel free to reach out to @yu_jieee on Instagram or Telegram for troubleshooting assistance.
