@@ -3,6 +3,7 @@
 ![RoadSG Logo](src/assets/roadsg-logo.png)
 
 RoadSG is an exhilarating race-meets-geocaching app designed to unlock the hidden wonders of Singapore. Whether you're a local or a tourist, this app provides an extraordinary way to discover the cultural gems, breathtaking sights, and captivating stories of this vibrant city-state. Get ready to embark on an unforgettable journey and redefine how you explore Singapore.
+You can read more about our [Business Proposal](Proposal.pdf) here.
 
 ## Features
 
