@@ -44,8 +44,9 @@ As you conquer each location and complete challenges, you'll earn points that re
 
 ## Installation
 
-RaceSG has been deployed on [https://race-sg.vercel.app/](https://race-sg.vercel.app/) for demo purposes. If you
-would like to install RaceSG, follow these steps:
+RaceSG has been deployed on [https://race-sg.vercel.app/](https://race-sg.vercel.app/) for demo purposes. 
+<br>
+If you would like to install RaceSG, follow these steps:
 
 1. Clone this repository to your local machine.
 
@@ -93,7 +94,7 @@ We welcome contributions from everyone! If you have any ideas, suggestions, or b
 
 ## Support
 
-If you encounter any issues or need assistance with RaceSG, please contact our support team at support@Racesg.com. We are here to help you make the most of your adventure.
+If you encounter any issues or need assistance with RaceSG, please contact our team below. We are here to help you make the most of your adventure.
 
 ## License
 
