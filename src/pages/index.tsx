@@ -19,7 +19,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<UserInfoRes | null>(null);
   const [animationVisible, setAnimationVisible] = useState(true);
-  const [loginAnimationVisible, setLoginAnimationVisible] = useState(true);
   const [showRedirectAnimation, setShowRedirectAnimation] = useState(false);
 
   const handleLogin = () => {

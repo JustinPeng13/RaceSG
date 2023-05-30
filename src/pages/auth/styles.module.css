@@ -50,14 +50,14 @@
 .form input[type="submit"] {
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #4caf50;
+  background-color: #dab6fc;
   color: white;
   cursor: pointer;
   width: 200px;
 }
 
 .form input[type="submit"]:hover {
-  background-color: #43a047;
+  background-color: #8e94f2;
 }
 
 /* For buttons */
