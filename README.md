@@ -44,7 +44,11 @@ pnpm dev
 
 > **Note:** Please be cautious when handling the Firebase API key included in this repository. Although the API key is not a private key and is only used to identify the project with Google's servers, it's essential to exercise caution when working with any sensitive keys. It is always recommended to review the tech stack you are working with and handle any keys with care.
 
-> **Note:** The sgID key is not provided in this case as it is meant to be kept confidential. Therefore, when testing the login with SingPass, you will encounter an error. To resolve this, you need to replace the placeholder keys with your own. If you face any issues while dealing with the sgID authentication component of our product, please feel free to reach out to @yu_jieee on Instagram or Telegram for troubleshooting assistance.
+> **Note:** The sgID key is not provided in this case as it is meant to be kept confidential. Therefore, when testing the login with SingPass, you will encounter an error. To resolve this, you need to replace the placeholder keys with your own.
+
+Visit [https://developer.id.gov.sg/](https://developer.id.gov.sg/) to create your own key and refer to the [documentation](https://docs.id.gov.sg/introduction/overview) for more information about sgID.
+
+If you face any issues while dealing with the sgID authentication component of our product, please feel free to reach out to @yu_jieee on Instagram or Telegram for troubleshooting assistance.
 
 ## Contributing
 
@@ -66,9 +70,12 @@ We would like to express our gratitude to the Singapore government for their gen
 
 Follow us on social media to stay updated with the latest news, challenges, and rewards:
 
-- Twitter: [@RoadSGApp](https://twitter.com/RoadSGApp)
-- Instagram: [@RoadSGApp](https://www.instagram.com/RoadSGApp)
-- Facebook: [RoadSG](https://www.facebook.com/RoadSG)
+Our Team Members:
+
+- Justin Peng: [@justinpeng13](https://www.instagram.com/justinpeng13/)
+- Yeo Yu Jie: [@yu_jieee](https://www.instagram.com/yu_jieee/)
+- Xie Yiliu: [@xied09e](https://www.instagram.com/xied09e/)
+- Tiang Hui Zheng: [@heyzec](https://www.instagram.com/heyzec/)
 
 Join our vibrant community of explorers and share your RoadSG experiences using the hashtag #RoadSGAdventures.
 
