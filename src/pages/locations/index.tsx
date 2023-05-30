@@ -8,6 +8,17 @@ export default function Locations() {
   const db = getDatabase(app);
 
   const [locations, setLocations] = useState({});
+  const [selectedCard, setSelectedCard] = useState<string | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
+  const handleCardClick = (id: string) => {
+    setSelectedCard(id);
+  };
+
+  const handleCardHover = (id: string) => {
+    setHoveredCard(id);
+  };
+
   useEffect(() => {
     get(ref(db, "locations"))
       .then((snapshot) => {
@@ -34,7 +45,18 @@ export default function Locations() {
           const loc = val as ILocation;
           return (
             <Link key={id} href={`/locations/${id}`}>
-              <Card className="p-4 flex flex-col justify-between rounded-lg shadow">
+              <Card
+                className={`p-4 flex flex-col mb-2 justify-between rounded-lg shadow ${
+                  hoveredCard === id
+                    ? "bg-gray-100 scale-105"
+                    : hoveredCard === id
+                    ? "bg-blue-200"
+                    : "bg-white"
+                }`}
+                onMouseEnter={() => handleCardHover(id)}
+                onMouseLeave={() => setHoveredCard(null)}
+                onClick={() => handleCardClick(id)}
+              >
                 <div>
                   <Card.Title className="text-lg font-semibold">
                     {loc.name}
