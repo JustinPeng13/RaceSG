@@ -15,7 +15,6 @@ Browse through our user-friendly website to uncover a meticulously curated list 
 
 ### 2. Seamless Authentication with sgID
 
-At RaceSG, we prioritize user convenience and security. That's why we have integrated with sgID, a Singapore government identity provider, to offer seamless authentication for local users. With sgID, Singapore residents can easily authenticate themselves and share government-verified data via the Singpass mobile app.
 ![Singpass login](src/assets/singpass.png)
 
 At RoadSG, we prioritize user convenience and security. That's why we have integrated with sgID, a Singapore government identity provider, to offer seamless authentication for local users. With sgID, Singapore residents can easily authenticate themselves and share government-verified data via the Singpass mobile app.
